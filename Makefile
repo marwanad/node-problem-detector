@@ -105,10 +105,10 @@ endif
 
 Dockerfile: Dockerfile.in
 	sed -e 's|@BASEIMAGE@|$(BASEIMAGE)|g' $< >$@
-ifneq ($(ENABLE_JOURNALD), 1)
-	sed -i '/Below command depends on ENABLE_JOURNAL=1/,+2d' $@
-	echo "Warning: log-counter requires journald, skipping."
-endif
+#ifneq ($(ENABLE_JOURNALD), 1)
+#	sed -i '/Below command depends on ENABLE_JOURNAL=1/,+2d' $@
+#	echo "Warning: log-counter requires journald, skipping."
+#endif
 
 
 test: vet fmt
